@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import NormalizeCSS from "./assets/css/NormalizeCSS";
-import { Header } from "./components";
+import { Header, MainView } from "./components";
 
 import { theme } from "./assets/theme";
 
@@ -18,6 +18,7 @@ function App() {
       <NormalizeCSS />
       <AppWrapper>
         <Header></Header>
+        <MainView />
       </AppWrapper>
     </>
   );
