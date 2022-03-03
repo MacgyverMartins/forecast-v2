@@ -1,6 +1,6 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Outlet } from "react-router-dom";
-import { AppProvider, AppContext, LocButton, Header } from "../index";
+import { AppContext, LocButton, Header } from "../index";
 import NormalizeCSS from "../../assets/css/NormalizeCSS";
 import {
   AppWrapper,
@@ -33,21 +33,20 @@ const dummyLocs = [
   },
 ];
 
-const dummy = [];
+const locations = [];
 
-while (dummy.length < 18) {
-  dummy.push({
+while (locations.length < 18) {
+  locations.push({
     id: Math.random(),
-    country: "ES",
-    lat: 41.3828939,
-    lon: 2.1774322,
-    name: "Barcelona",
-    state: "Catalonia",
+    name: "Orlando",
+    state: "Florida",
+    country: "US",
+    lat: 28.5421109,
+    lon: -81.3790304,
   });
 }
 
 function MainView() {
-  const [locations, setLocations] = useState(dummy);
   const { selectedLocation, setLocation } = useContext(AppContext);
 
   return (
