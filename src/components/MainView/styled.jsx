@@ -19,7 +19,6 @@ export const ForeCastView = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: red;
   height: 50%;
 `;
 

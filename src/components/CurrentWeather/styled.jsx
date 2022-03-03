@@ -6,7 +6,6 @@ export const CurrentWeatherWrapper = styled.div`
   display: flex;
   width: 100%;
   position: relative;
-  align-items: center;
   justify-content: center;
 `;
 
@@ -19,10 +18,11 @@ export const Title = styled.p`
 `;
 
 export const InfosList = styled.ul`
-  position: absolute;
-  margin-left: 272px;
   list-style: none;
   padding: 0;
+  position: absolute;
+  left: 60%;
+  top: 35px;
 
   li {
     color: ${theme.colors.white};

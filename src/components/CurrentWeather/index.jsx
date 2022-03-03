@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AppContext, WeatherIcon, Fallback } from "../index";
+import { AppContext, WeatherIcon, Fallback, Tabnav } from "../index";
 import { CurrentWeatherWrapper, InfosList, Title } from "./styled";
 import { getFormatedTime } from "../../utils";
 
@@ -24,6 +24,7 @@ function CurrentWeather() {
       <div>
         <Title>{selectedLocation.name}</Title>
         <WeatherIcon />
+        <Tabnav />
       </div>
       <InfosList>
         <li>

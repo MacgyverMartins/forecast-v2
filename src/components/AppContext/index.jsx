@@ -2,10 +2,17 @@ import { createContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { API_URL, API_KEY } from "../../config";
 
+export const UNIT_SETTINGS = ["standard", "metric", "imperial"];
+export const TIME_SETTINGS = ["h23", "h11"];
+
 export const AppContext = createContext({
   forecast: {},
   loading: false,
   selectedLocation: null,
+  settings: {
+    unit: UNIT_SETTINGS[0],
+    time: TIME_SETTINGS[0],
+  },
   setLocation: () => {
     console.log("You must to override that method");
   },

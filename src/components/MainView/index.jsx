@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Outlet } from "react-router-dom";
+import cities from "../../assets/cities";
 import { AppContext, LocButton, Header } from "../index";
 import NormalizeCSS from "../../assets/css/NormalizeCSS";
 import {
@@ -9,42 +10,10 @@ import {
   ForeCastView,
 } from "./styled";
 
-const dummyLocs = [
-  {
-    country: "GB",
-    lat: 51.5073219,
-    lon: -0.1276474,
-    name: "London",
-    state: "England",
-  },
-  {
-    name: "Orlando",
-    state: "Florida",
-    country: "US",
-    lat: 28.5421109,
-    lon: -81.3790304,
-  },
-  {
-    country: "ES",
-    lat: 41.3828939,
-    lon: 2.1774322,
-    name: "Barcelona",
-    state: "Catalonia",
-  },
-];
-
-const locations = [];
-
-while (locations.length < 18) {
-  locations.push({
-    id: Math.random(),
-    name: "Orlando",
-    state: "Florida",
-    country: "US",
-    lat: 28.5421109,
-    lon: -81.3790304,
-  });
-}
+const locations = cities.map((loc) => {
+  const key = `${loc.name}_${Math.random()}`;
+  return { ...loc, key };
+});
 
 function MainView() {
   const { selectedLocation, setLocation } = useContext(AppContext);
@@ -57,16 +26,16 @@ function MainView() {
         <MainViewWrapper>
           <ForeCastView>
             <Outlet />
-            {/* <Forecast /> */}
           </ForeCastView>
+
           <LocationsGrid>
             {locations.map((loc) => (
               <LocButton
-                key={loc.id}
-                active={selectedLocation?.id === loc.id}
+                key={loc.key}
+                active={selectedLocation?.key === loc.key}
                 onClick={() => setLocation(loc)}
               >
-                {loc.name}
+                {loc.name}, {loc.country}
               </LocButton>
             ))}
           </LocationsGrid>
