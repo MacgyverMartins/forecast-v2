@@ -1,4 +1,13 @@
 import styled from "styled-components";
+import { theme } from "../../assets/theme";
+
+export const AppWrapper = styled.div`
+  background-color: ${theme.colors.black};
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+`;
 
 export const MainViewWrapper = styled.div`
   height: 100%;

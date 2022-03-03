@@ -1,6 +1,13 @@
 import { useState } from "react";
-import { Forecast, LocButton } from "..";
-import { MainViewWrapper, LocationsGrid, ForeCastView } from "./styled";
+import { Outlet } from "react-router-dom";
+import { Forecast, LocButton, Header } from "../index";
+import NormalizeCSS from "../../assets/css/NormalizeCSS";
+import {
+  AppWrapper,
+  MainViewWrapper,
+  LocationsGrid,
+  ForeCastView,
+} from "./styled";
 
 const dummyLocs = [
   {
@@ -43,22 +50,32 @@ function MainView() {
   const [locations, setLocations] = useState(dummy);
   const [selectedLoc, setSelectedLoc] = useState(null);
 
+  console.log("render");
+
   return (
-    <MainViewWrapper>
-      <ForeCastView>
-        <Forecast />
-      </ForeCastView>
-      <LocationsGrid>
-        {locations.map((loc) => (
-          <LocButton
-            active={selectedLoc?.id === loc.id}
-            onClick={() => setSelectedLoc(loc)}
-          >
-            {loc.name}
-          </LocButton>
-        ))}
-      </LocationsGrid>
-    </MainViewWrapper>
+    <>
+      <NormalizeCSS />
+      <AppWrapper>
+        <Header />
+        <MainViewWrapper>
+          <ForeCastView>
+            <Outlet />
+            {/* <Forecast /> */}
+          </ForeCastView>
+          <LocationsGrid>
+            {locations.map((loc) => (
+              <LocButton
+                key={loc.id}
+                active={selectedLoc?.id === loc.id}
+                onClick={() => setSelectedLoc(loc)}
+              >
+                {loc.name}
+              </LocButton>
+            ))}
+          </LocationsGrid>
+        </MainViewWrapper>
+      </AppWrapper>
+    </>
   );
 }
 

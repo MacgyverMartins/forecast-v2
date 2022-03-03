@@ -1,10 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import { MainView, CurrentWeather, DailyWeather } from "./components";
+import App from "./App";
+import { CurrentWeather, DailyWeather } from "./components";
 
-function App() {
+function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<MainView />}>
+      <Route path="/" element={<App />}>
         <Route index element={<CurrentWeather />} />
         <Route path="7days" element={<DailyWeather />}></Route>
       </Route>
@@ -12,4 +13,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppRoutes;
