@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Outlet } from "react-router-dom";
-import { Forecast, LocButton, Header } from "../index";
+import { AppProvider, AppContext, LocButton, Header } from "../index";
 import NormalizeCSS from "../../assets/css/NormalizeCSS";
 import {
   AppWrapper,
@@ -48,9 +48,7 @@ while (dummy.length < 18) {
 
 function MainView() {
   const [locations, setLocations] = useState(dummy);
-  const [selectedLoc, setSelectedLoc] = useState(null);
-
-  console.log("render");
+  const { selectedLocation, setLocation } = useContext(AppContext);
 
   return (
     <>
@@ -66,8 +64,8 @@ function MainView() {
             {locations.map((loc) => (
               <LocButton
                 key={loc.id}
-                active={selectedLoc?.id === loc.id}
-                onClick={() => setSelectedLoc(loc)}
+                active={selectedLocation?.id === loc.id}
+                onClick={() => setLocation(loc)}
               >
                 {loc.name}
               </LocButton>
