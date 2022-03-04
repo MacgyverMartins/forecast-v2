@@ -5,14 +5,14 @@ import { CurrentWeatherWrapper, Title } from "./styled";
 
 function CurrentWeather() {
   const [selectedLocation, forecast] = useOutletContext();
-  const pathURL = useParams();
+  // const pathURL = useParams();
 
   if (!selectedLocation) {
     return <Fallback />;
   }
 
   if (selectedLocation && !forecast) {
-    return <p>Loading...</p>;
+    return <p style={{ color: "white" }}>Loading...</p>;
   }
 
   const {
@@ -29,6 +29,7 @@ function CurrentWeather() {
         <WeatherCard
           weather={{ temp, feels_like, humidity, sunrise, sunset, timezone }}
         />
+
         <Tabnav />
       </div>
     </CurrentWeatherWrapper>

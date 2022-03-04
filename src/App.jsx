@@ -10,9 +10,9 @@ function App() {
   return (
     // <AppProvider>
     <Routes>
-      <Route path="*" element={<MainView />}>
+      <Route path="/" element={<MainView />}>
         <Route index element={<CurrentWeather />} />
-        <Route path="7days" element={<CurrentWeather />}></Route>
+        <Route path="/7days" element={<CurrentWeather />}></Route>
       </Route>
     </Routes>
     // </AppProvider>

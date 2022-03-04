@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../assets/theme";
 
@@ -11,9 +11,7 @@ export const TabnavWrapper = styled.div`
   }
 `;
 
-export const Button = styled(Link).attrs((props) => ({
-  className: props.active ? "active" : "",
-}))`
+export const Link = styled(NavLink)`
   cursor: pointer;
   color: ${theme.colors.white};
   background-color: transparent;
