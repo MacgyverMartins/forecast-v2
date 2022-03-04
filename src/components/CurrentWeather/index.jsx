@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import { AppContext, WeatherIcon, Fallback, Tabnav } from "../index";
-import { CurrentWeatherWrapper, InfosList, Title } from "./styled";
-import { getFormatedTime } from "../../utils";
+import { AppContext, Fallback, Tabnav, WeatherCard } from "../index";
+import { CurrentWeatherWrapper, Title } from "./styled";
 
 function CurrentWeather() {
   const { selectedLocation, forecast } = useContext(AppContext);
@@ -23,22 +22,11 @@ function CurrentWeather() {
     <CurrentWeatherWrapper>
       <div>
         <Title>{selectedLocation.name}</Title>
-        <WeatherIcon />
+        <WeatherCard
+          weather={{ temp, feels_like, humidity, sunrise, sunset, timezone }}
+        />
         <Tabnav />
       </div>
-      <InfosList>
-        <li>
-          Temp: {temp}
-          <code>&deg;</code>F
-        </li>
-        <li>
-          Feels Like: {feels_like}
-          <code>&deg;</code>F
-        </li>
-        <li>Humidity: {humidity}%</li>
-        <li>Sunrise: {getFormatedTime(sunrise, timezone)}</li>
-        <li>Sunset: {getFormatedTime(sunset, timezone)}</li>
-      </InfosList>
     </CurrentWeatherWrapper>
   );
 }
