@@ -15,10 +15,7 @@ export const MainViewWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const ForeCastView = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const ForecasArea = styled.div`
   height: 50%;
 `;
 

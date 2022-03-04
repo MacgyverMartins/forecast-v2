@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import cities from "../../assets/cities";
-import forecastAPI from "../../services/forecastAPI";
 import { LocButton, Header } from "../index";
 import NormalizeCSS from "../../assets/css/NormalizeCSS";
 import {
   AppWrapper,
   MainViewWrapper,
   LocationsGrid,
-  ForeCastView,
+  ForecasArea,
 } from "./styled";
 
 const locations = cities.map((loc) => {
@@ -17,21 +16,9 @@ const locations = cities.map((loc) => {
 });
 
 function MainView() {
-  const [selectedLocation, setLocation] = useState(null);
-  const [forecast, setForecast] = useState(null);
+  const [selectedLocation, setLocation] = useState(locations[0]);
 
-  useEffect(() => {
-    if (selectedLocation) {
-      const { lat, lon } = selectedLocation;
-
-      async function fetchForecast() {
-        const data = await forecastAPI.fetchOneCall(lat, lon);
-        setForecast(data);
-      }
-
-      fetchForecast();
-    }
-  }, [selectedLocation]);
+  console.log("rerender mainview");
 
   return (
     <>
@@ -39,14 +26,11 @@ function MainView() {
       <AppWrapper>
         <Header />
         <MainViewWrapper>
-          <ForeCastView>
-            {!selectedLocation && <p style={{ color: "white" }}>nada</p>}
-            {selectedLocation && (
-              <Outlet context={[selectedLocation, forecast]} />
-            )}
-          </ForeCastView>
+          <ForecasArea>
+            <Outlet context={[selectedLocation]} />
+          </ForecasArea>
 
-          <LocationsGrid>
+          {/* <LocationsGrid>
             {locations.map((loc) => (
               <LocButton
                 key={loc.key}
@@ -56,7 +40,7 @@ function MainView() {
                 {loc.name}, {loc.country}
               </LocButton>
             ))}
-          </LocationsGrid>
+          </LocationsGrid> */}
         </MainViewWrapper>
       </AppWrapper>
     </>

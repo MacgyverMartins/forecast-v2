@@ -1,5 +1,4 @@
 export const getFormatedTime = (unixTime, timezone) => {
-  const locale = window.navigator.userLanguage || window.navigator.language;
   const date = new Date(unixTime * 1000);
 
   const options = {
@@ -8,7 +7,7 @@ export const getFormatedTime = (unixTime, timezone) => {
     timeZone: timezone,
   };
 
-  const current = new Intl.DateTimeFormat(locale, options).format(date);
+  const current = new Intl.DateTimeFormat("en-US", options).format(date);
 
   return current;
 };

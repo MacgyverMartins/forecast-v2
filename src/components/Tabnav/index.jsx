@@ -1,12 +1,17 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link, TabnavWrapper } from "./styled";
 
-export default function Tabnav() {
+function Tabnav() {
+  console.log("render nav");
   return (
     <TabnavWrapper>
       <p>Forecast</p>
-      <Link to="/">Current</Link>
-      <Link to="/7days">7 days</Link>
+      <div>
+        <Link to="/">Current</Link>
+        <Link to="/7days">7 days</Link>
+      </div>
     </TabnavWrapper>
   );
 }
+
+export default memo(Tabnav);

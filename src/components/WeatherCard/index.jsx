@@ -2,13 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import { WeatherIcon } from "../index";
 import { getFormatedTime } from "../../utils";
-import { InfosList } from "./styled";
+import { InfosList, WeatherCardWrapper } from "./styled";
 
-function WeatherCard({ weather }) {
-  const { temp, feels_like, humidity, sunrise, sunset, timezone } = weather;
+function WeatherCard({ weather, timezone }) {
+  console.log({ weather, timezone });
+  const { temp, feels_like, humidity, sunrise, sunset } = weather;
 
   return (
-    <>
+    <WeatherCardWrapper>
       <WeatherIcon />
       <InfosList>
         <li>
@@ -23,12 +24,13 @@ function WeatherCard({ weather }) {
         <li>Sunrise: {getFormatedTime(sunrise, timezone)}</li>
         <li>Sunset: {getFormatedTime(sunset, timezone)}</li>
       </InfosList>
-    </>
+    </WeatherCardWrapper>
   );
 }
 
 WeatherCard.propTypes = {
-  weather: PropTypes.shape({
+  detailed: PropTypes.bool,
+  details: PropTypes.shape({
     temp: PropTypes.number,
     feels_like: PropTypes.number,
     humidity: PropTypes.number,
