@@ -30,7 +30,7 @@ function MainView() {
             <Outlet context={[selectedLocation]} />
           </ForecasArea>
 
-          {/* <LocationsGrid>
+          <LocationsGrid>
             {locations.map((loc) => (
               <LocButton
                 key={loc.key}
@@ -40,7 +40,7 @@ function MainView() {
                 {loc.name}, {loc.country}
               </LocButton>
             ))}
-          </LocationsGrid> */}
+          </LocationsGrid>
         </MainViewWrapper>
       </AppWrapper>
     </>

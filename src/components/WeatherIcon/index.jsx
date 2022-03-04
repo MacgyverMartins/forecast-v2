@@ -1,15 +1,27 @@
-import React from "react";
-import styled from "styled-components";
-import ClearSky from "./Icons/ClearSky";
-
-import { theme } from "../../assets/theme";
+import React, { Suspense } from "react";
+import PropTypes from "prop-types";
 import { Description, IconWrapper } from "./styled";
+import getWeatherIcon from "./getWeatherIcon";
 
-export default function WeatherIcon({ weather }) {
+function WeatherIcon({ weather }) {
+  const { main, icon } = weather;
+
+  const Component = getWeatherIcon(icon);
+
   return (
     <IconWrapper>
-      <ClearSky />
-      <Description>Sunny</Description>
+      <Suspense fallback={<div>...</div>}>
+        <Component />
+      </Suspense>
+      <Description>{main}</Description>
     </IconWrapper>
   );
 }
+
+WeatherIcon.propTypes = {
+  weather: PropTypes.shape({
+    main: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+  }),
+};
+export default WeatherIcon;

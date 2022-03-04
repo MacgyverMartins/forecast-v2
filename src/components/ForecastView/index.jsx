@@ -31,25 +31,30 @@ function ForecastView() {
     return <p style={{ color: "white" }}>Loading...</p>;
   }
 
-  // const {
-  //   timezone,
-  //   current: { temp, feels_like, humidity, sunrise, sunset },
-  // } = forecast;
-
   const { timezone, current, daily } = forecast;
 
   const WeatherComp = () => {
     if (pathname === "/7days") {
       return (
         <WeatherList>
-          {daily.map(({ dt, temp: { max, min } }) => (
-            <DailyWeatherCard key={dt} max={max} min={min} />
-          ))}
+          {daily.map(({ dt, weather, temp: { max, min } }) => {
+            return (
+              <DailyWeatherCard
+                key={dt}
+                max={max}
+                min={min}
+                weather={weather[0]}
+              />
+            );
+          })}
         </WeatherList>
       );
     }
 
-    return <WeatherCard weather={current} timezone={timezone} />;
+    const [weather] = current.weather;
+    return (
+      <WeatherCard weather={weather} details={current} timezone={timezone} />
+    );
   };
 
   return (

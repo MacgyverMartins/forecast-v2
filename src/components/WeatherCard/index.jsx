@@ -1,16 +1,14 @@
-import React from "react";
 import PropTypes from "prop-types";
 import { WeatherIcon } from "../index";
 import { getFormatedTime } from "../../utils";
 import { InfosList, WeatherCardWrapper } from "./styled";
 
-function WeatherCard({ weather, timezone }) {
-  console.log({ weather, timezone });
-  const { temp, feels_like, humidity, sunrise, sunset } = weather;
+function WeatherCard({ details, weather, timezone }) {
+  const { temp, feels_like, humidity, sunrise, sunset } = details;
 
   return (
     <WeatherCardWrapper>
-      <WeatherIcon />
+      <WeatherIcon weather={weather} />
       <InfosList>
         <li>
           Temp: {temp}
@@ -29,14 +27,17 @@ function WeatherCard({ weather, timezone }) {
 }
 
 WeatherCard.propTypes = {
-  detailed: PropTypes.bool,
+  timezone: PropTypes.string.isRequired,
   details: PropTypes.shape({
-    temp: PropTypes.number,
-    feels_like: PropTypes.number,
-    humidity: PropTypes.number,
-    sunrise: PropTypes.number,
-    sunset: PropTypes.number,
-    timezone: PropTypes.string,
+    temp: PropTypes.number.isRequired,
+    feels_like: PropTypes.number.isRequired,
+    humidity: PropTypes.number.isRequired,
+    sunrise: PropTypes.number.isRequired,
+    sunset: PropTypes.number.isRequired,
+  }),
+  weather: PropTypes.shape({
+    main: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
   }),
 };
 
