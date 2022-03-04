@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { API_URL, API_KEY } from "../../config";
+import { API_URL, API_KEY } from "../../constants";
 
 export const UNIT_SETTINGS = ["standard", "metric", "imperial"];
 export const TIME_SETTINGS = ["h23", "h11"];

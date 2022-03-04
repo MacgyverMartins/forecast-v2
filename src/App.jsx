@@ -8,14 +8,14 @@ import {
 
 function App() {
   return (
-    <AppProvider>
-      <Routes>
-        <Route path="*" element={<MainView />}>
-          <Route index element={<CurrentWeather />} />
-          <Route path="7days" element={<DailyWeather />}></Route>
-        </Route>
-      </Routes>
-    </AppProvider>
+    // <AppProvider>
+    <Routes>
+      <Route path="*" element={<MainView />}>
+        <Route index element={<CurrentWeather />} />
+        <Route path="7days" element={<CurrentWeather />}></Route>
+      </Route>
+    </Routes>
+    // </AppProvider>
   );
 }
 
