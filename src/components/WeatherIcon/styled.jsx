@@ -12,3 +12,7 @@ export const Description = styled.span`
   margin-top: 10px;
   font-size: 20px;
 `;
+
+export const StyledSVG = styled.svg`
+  filter: drop-shadow(0 0 13px ${(p) => p.fill});
+`;
