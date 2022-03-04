@@ -7,7 +7,7 @@ export default function BaseSVG({ children, fill }) {
       version="1.1"
       width="140"
       height="140"
-      viewBox="-3 -3 30 30"
+      viewBox="0 0 24 24"
       fill={fill}
     >
       {children}

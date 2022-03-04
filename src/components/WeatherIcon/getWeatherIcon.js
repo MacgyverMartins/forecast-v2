@@ -20,7 +20,7 @@ function getWeatherIcon(icon) {
     case "03d":
       return Clouds;
     case "03n":
-      return FewClouds;
+      return Clouds;
     case "04d":
     case "04n":
       return BrokenClouds;
