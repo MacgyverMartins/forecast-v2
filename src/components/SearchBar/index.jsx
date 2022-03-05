@@ -1,31 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Close, InputArea, SearchAction, SearchInput } from "./styled";
-import { useState } from "react";
+import { Close, InputArea, SearchInput } from "./styled";
 
 function SearchBar(props) {
-  const [open, setOpen] = useState(false);
-
   return (
-    <div>
-      {!open && (
-        <SearchAction onClick={() => setOpen(true)}>Search</SearchAction>
-      )}
-      {open && (
-        <InputArea>
-          <SearchInput
-            type="text"
-            onChange={(e) => props.onSearch(e.target.value)}
-          />
-          <Close onClick={() => setOpen(false)} />
-        </InputArea>
-      )}
-    </div>
+    <InputArea>
+      <SearchInput
+        type="text"
+        onChange={(e) => props.onSearch(e.target.value)}
+      />
+      <Close onClick={props.onClose} />
+    </InputArea>
   );
 }
 
 SearchBar.propTypes = {
-  onSearch: PropTypes.func,
+  onSearch: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

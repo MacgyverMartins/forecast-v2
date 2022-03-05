@@ -15,8 +15,10 @@ export const Clock = styled.div``;
 export const Actions = styled.div`
   display: flex;
   align-items: center;
+`;
 
-  > div:first-child {
-    margin-right: 8px;
-  }
+export const Action = styled.span`
+  color: ${theme.colors.white};
+  cursor: pointer;
+  margin-left: 8px;
 `;

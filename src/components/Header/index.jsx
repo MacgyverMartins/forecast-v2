@@ -1,16 +1,20 @@
-import { memo } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { SearchBar } from "..";
-import { HeaderWrapper, Actions, Clock } from "./styled";
+import { HeaderWrapper, Actions, Action, Clock } from "./styled";
 
 function Header(props) {
-  console.log("render Header");
+  const [open, setOpen] = useState(false);
+
   return (
     <HeaderWrapper>
       <Clock>3:25 PM</Clock>
       <Actions>
-        <SearchBar onSearch={props.onSearch} />
-        <div>Settings</div>
+        {!open && <Action onClick={() => setOpen(true)}>Search</Action>}
+        {open && (
+          <SearchBar onSearch={props.onSearch} onClose={() => setOpen(false)} />
+        )}
+        <Action>Settings</Action>
       </Actions>
     </HeaderWrapper>
   );
@@ -20,5 +24,4 @@ Header.propTypes = {
   onSearch: PropTypes.func,
 };
 
-// export default Header;
-export default memo(Header);
+export default Header;

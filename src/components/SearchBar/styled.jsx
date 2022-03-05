@@ -2,11 +2,6 @@ import styled from "styled-components";
 import { theme } from "../../assets/theme";
 import CloseIcon from "./CloseIcon";
 
-export const SearchAction = styled.span`
-  color: ${theme.colors.white};
-  cursor: pointer;
-`;
-
 export const InputArea = styled.div`
   position: relative;
 `;
