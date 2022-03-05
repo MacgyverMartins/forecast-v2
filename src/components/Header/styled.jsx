@@ -20,5 +20,5 @@ export const Actions = styled.div`
 export const Action = styled.span`
   color: ${theme.colors.white};
   cursor: pointer;
-  margin-left: 8px;
+  margin: 0 8px;
 `;

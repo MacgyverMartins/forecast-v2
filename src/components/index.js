@@ -8,4 +8,6 @@ export { default as WeatherCard } from "./WeatherCard";
 export { default as DailyWeatherCard } from "./DailyWeatherCard";
 export { default as ForecastView } from "./ForecastView";
 export { default as SearchBar } from "./SearchBar";
+export { default as SettingsModal } from "./SettingsModal";
+export { default as RadioButton } from "./RadioButton";
 export * from "./AppContext";

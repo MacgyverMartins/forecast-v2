@@ -1,10 +1,11 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { SearchBar } from "..";
+import { SearchBar, SettingsModal } from "..";
 import { HeaderWrapper, Actions, Action, Clock } from "./styled";
 
 function Header(props) {
   const [open, setOpen] = useState(false);
+  const [showModal, setShowModal] = useState(true);
 
   return (
     <HeaderWrapper>
@@ -14,8 +15,9 @@ function Header(props) {
         {open && (
           <SearchBar onSearch={props.onSearch} onClose={() => setOpen(false)} />
         )}
-        <Action>Settings</Action>
+        <Action onClick={() => setShowModal(true)}>Settings</Action>
       </Actions>
+      {showModal && <SettingsModal onClose={() => setShowModal(false)} />}
     </HeaderWrapper>
   );
 }
