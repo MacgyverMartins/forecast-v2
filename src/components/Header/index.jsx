@@ -1,31 +1,24 @@
-import styled from "styled-components";
-import { theme } from "../../assets/theme";
+import { memo } from "react";
+import PropTypes from "prop-types";
+import { SearchBar } from "..";
+import { HeaderWrapper, Actions, Clock } from "./styled";
 
-const HeaderWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 16px;
-  color: ${theme.colors.white};
-`;
-
-const Clock = styled.div``;
-
-const Actions = styled.div`
-  > * {
-    margin-right: 12px;
-  }
-`;
-
-function Header() {
+function Header(props) {
+  console.log("render Header");
   return (
     <HeaderWrapper>
       <Clock>3:25 PM</Clock>
       <Actions>
-        <span>Search</span>
-        <span>Settings</span>
+        <SearchBar onSearch={props.onSearch} />
+        <div>Settings</div>
       </Actions>
     </HeaderWrapper>
   );
 }
 
-export default Header;
+Header.propTypes = {
+  onSearch: PropTypes.func,
+};
+
+// export default Header;
+export default memo(Header);

@@ -7,4 +7,5 @@ export { default as Tabnav } from "./Tabnav";
 export { default as WeatherCard } from "./WeatherCard";
 export { default as DailyWeatherCard } from "./DailyWeatherCard";
 export { default as ForecastView } from "./ForecastView";
+export { default as SearchBar } from "./SearchBar";
 export * from "./AppContext";

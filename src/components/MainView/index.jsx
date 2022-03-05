@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Outlet } from "react-router-dom";
 import cities from "../../assets/cities";
 import { LocButton, Header } from "../index";
@@ -18,13 +18,23 @@ const locations = cities.map((loc) => {
 function MainView() {
   const [selectedLocation, setLocation] = useState(locations[0]);
 
-  console.log("rerender mainview");
+  const filterByLocationName = (term) => {
+    if (term) {
+      const regex = new RegExp(`^${term}`, "i");
+      const location = locations.find((loc) => loc.name.match(regex));
+      if (location) {
+        setLocation(location);
+      }
+    }
+  };
+
+  console.log("render Main");
 
   return (
     <>
       <NormalizeCSS />
       <AppWrapper>
-        <Header />
+        <Header onSearch={filterByLocationName} />
         <MainViewWrapper>
           <ForecasArea>
             <Outlet context={[selectedLocation]} />
