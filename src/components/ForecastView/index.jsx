@@ -1,27 +1,31 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useOutletContext, useLocation } from "react-router-dom";
 import forecastAPI from "../../services/forecastAPI";
 import DailyWeatherCard from "../DailyWeatherCard";
-import { Fallback, Tabnav, WeatherCard } from "../index";
+import { Fallback, Tabnav, WeatherCard, SettingsContext } from "../index";
 import { ForecastWrapper, Title, WeatherList } from "./styled";
 
 function ForecastView() {
   const [selectedLocation] = useOutletContext();
-  const [forecast, setForecast] = useState(null);
+  const {
+    settings: { units },
+  } = useContext(SettingsContext);
   const { pathname } = useLocation();
+
+  const [forecast, setForecast] = useState(null);
 
   useEffect(() => {
     if (selectedLocation) {
       const { lat, lon } = selectedLocation;
 
       async function fetchForecast() {
-        const data = await forecastAPI.fetchOneCall(lat, lon);
+        const data = await forecastAPI.fetchOneCall(lat, lon, units);
         setForecast(data);
       }
 
       fetchForecast();
     }
-  }, [selectedLocation]);
+  }, [selectedLocation, units]);
 
   if (!selectedLocation) {
     return <Fallback />;

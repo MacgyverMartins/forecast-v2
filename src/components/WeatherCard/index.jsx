@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import PropTypes from "prop-types";
-import { WeatherIcon } from "../index";
+import { WeatherIcon, SettingsContext } from "../index";
 import { getFormatedTime } from "../../utils";
 import { InfosList, WeatherCardWrapper } from "./styled";
 
 function WeatherCard({ details, weather, timezone }) {
+  const {
+    settings: { hourcycle },
+  } = useContext(SettingsContext);
   const { temp, feels_like, humidity, sunrise, sunset } = details;
 
   return (
@@ -12,15 +16,15 @@ function WeatherCard({ details, weather, timezone }) {
       <InfosList>
         <li>
           Temp: {temp}
-          <code>&deg;</code>F
+          <code>&deg;</code>
         </li>
         <li>
           Feels Like: {feels_like}
-          <code>&deg;</code>F
+          <code>&deg;</code>
         </li>
         <li>Humidity: {humidity}%</li>
-        <li>Sunrise: {getFormatedTime(sunrise, timezone)}</li>
-        <li>Sunset: {getFormatedTime(sunset, timezone)}</li>
+        <li>Sunrise: {getFormatedTime(sunrise, timezone, hourcycle)}</li>
+        <li>Sunset: {getFormatedTime(sunset, timezone, hourcycle)}</li>
       </InfosList>
     </WeatherCardWrapper>
   );
