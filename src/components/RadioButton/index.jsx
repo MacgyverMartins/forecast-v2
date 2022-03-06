@@ -10,7 +10,7 @@ export const RadioLabel = styled.label`
   border: 1px solid ${theme.colors.blue};
   border-radius: 6px;
   padding: 4px 0;
-  width: 100px;
+  width: 5rem;
   text-align: center;
   cursor: pointer;
 `;
@@ -25,11 +25,18 @@ export const Radio = styled.input`
   }
 `;
 
-function RadioButton({ value, name, label }) {
+function RadioButton({ value, name, label, checked, onChange }) {
   return (
     <>
-      <Radio type="radio" id={value} value={value} name={name} />
-      <RadioLabel for={value}>{label}</RadioLabel>
+      <Radio
+        type="radio"
+        id={value}
+        value={value}
+        name={name}
+        checked={checked}
+        onChange={onChange}
+      />
+      <RadioLabel htmlFor={value}>{label}</RadioLabel>
     </>
   );
 }
@@ -38,6 +45,8 @@ RadioButton.propTypes = {
   value: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default RadioButton;

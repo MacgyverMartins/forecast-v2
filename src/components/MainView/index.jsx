@@ -1,13 +1,13 @@
 import { useCallback, useState } from "react";
 import { Outlet } from "react-router-dom";
 import cities from "../../assets/cities";
-import { LocButton, Header } from "../index";
+import { SettingsProvider, LocButton, Header } from "../index";
 import NormalizeCSS from "../../assets/css/NormalizeCSS";
 import {
   AppWrapper,
   MainViewWrapper,
   LocationsGrid,
-  ForecasArea,
+  ForecastArea,
 } from "./styled";
 
 const locations = cities.map((loc) => {
@@ -36,9 +36,9 @@ function MainView() {
       <AppWrapper>
         <Header onSearch={filterByLocationName} />
         <MainViewWrapper>
-          <ForecasArea>
+          <ForecastArea>
             <Outlet context={[selectedLocation]} />
-          </ForecasArea>
+          </ForecastArea>
 
           <LocationsGrid>
             {locations.map((loc) => (

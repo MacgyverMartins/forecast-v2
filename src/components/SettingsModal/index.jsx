@@ -1,25 +1,34 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
-import { RadioButton } from "..";
+import { RadioButton, SettingsContext } from "..";
 import {
   Modal,
   ModalOverlay,
   Title,
   SubTitle,
   RadioGroup,
+  ActionsGroup,
   Button,
 } from "./styled";
 
 function SettingsModal(props) {
+  const { settings, setSettings } = useContext(SettingsContext);
+  const [units, setUnits] = useState(settings.units);
+  const [hourcycle, setHourcycle] = useState(settings.hourcycle);
+
   const onChangeUnits = (event) => {
-    console.log(event.target.value);
+    setUnits(event.target.value);
   };
 
-  const onChangeTime = (event) => {
-    console.log(event.target.value);
+  const onChangeHourcycle = (event) => {
+    setHourcycle(event.target.value);
   };
 
   const handleSave = () => {
+    setSettings({
+      units,
+      hourcycle,
+    });
     props.onClose();
   };
 
@@ -28,20 +37,50 @@ function SettingsModal(props) {
       <Modal>
         <Title>Settings</Title>
         <SubTitle>Units</SubTitle>
-        <RadioGroup onChange={onChangeUnits}>
-          <RadioButton label="Imperial" value="imperial" name="units" />
-          <RadioButton label="Metric" value="metric" name="units" />
-          <RadioButton label="Standard" value="standard" name="units" />
+        <RadioGroup>
+          <RadioButton
+            label="Imperial"
+            value="imperial"
+            name="units"
+            checked={units === "imperial"}
+            onChange={onChangeUnits}
+          />
+          <RadioButton
+            label="Metric"
+            value="metric"
+            name="units"
+            checked={units === "metric"}
+            onChange={onChangeUnits}
+          />
+          <RadioButton
+            label="Standard"
+            value="standard"
+            name="units"
+            checked={units === "standard"}
+            onChange={onChangeUnits}
+          />
         </RadioGroup>
         <SubTitle>Time</SubTitle>
-        <RadioGroup onChange={onChangeTime}>
-          <RadioButton label="AM/PM" value="h11" name="time" />
-          <RadioButton label="24h" value="h23" name="time" />
+        <RadioGroup>
+          <RadioButton
+            label="AM/PM"
+            value="h11"
+            name="time"
+            checked={hourcycle === "h11"}
+            onChange={onChangeHourcycle}
+          />
+          <RadioButton
+            label="24h"
+            value="h23"
+            name="time"
+            checked={hourcycle === "h23"}
+            onChange={onChangeHourcycle}
+          />
         </RadioGroup>
-        <RadioGroup onChange={onChangeTime} style={{ marginTop: "3rem" }}>
+        <ActionsGroup>
           <Button onClick={props.onClose}>Cancel</Button>
           <Button onClick={handleSave}>Save</Button>
-        </RadioGroup>
+        </ActionsGroup>
       </Modal>
     </ModalOverlay>
   );

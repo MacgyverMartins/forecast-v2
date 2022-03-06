@@ -62,6 +62,10 @@ export const RadioGroup = styled.div`
   }
 `;
 
+export const ActionsGroup = styled(RadioGroup)`
+  margin-top: 3rem;
+`;
+
 export const Button = styled.button`
   display: block;
   color: ${theme.colors.white};
@@ -71,7 +75,7 @@ export const Button = styled.button`
   border: 1px solid ${theme.colors.blue};
   border-radius: 6px;
   padding: 4px 0;
-  width: 100px;
+  width: 5rem;
   cursor: pointer;
 
   &:active {

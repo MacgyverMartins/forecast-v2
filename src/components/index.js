@@ -1,3 +1,4 @@
+export * from "./SettingsContext";
 export { default as Header } from "./Header";
 export { default as MainView } from "./MainView";
 export { default as LocButton } from "./LocButton";
@@ -10,4 +11,3 @@ export { default as ForecastView } from "./ForecastView";
 export { default as SearchBar } from "./SearchBar";
 export { default as SettingsModal } from "./SettingsModal";
 export { default as RadioButton } from "./RadioButton";
-export * from "./AppContext";

@@ -15,7 +15,7 @@ export const MainViewWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const ForecasArea = styled.div`
+export const ForecastArea = styled.div`
   height: 50%;
 `;
 
