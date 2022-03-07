@@ -17,7 +17,7 @@ export const ForecastWrapper = styled.div`
 
 export const Title = styled.p`
   font-weight: 400;
-  font-size: 20px;
+  font-size: 1.4rem;
   color: ${theme.colors.white};
   text-align: center;
   margin: 0 0 10px 0;

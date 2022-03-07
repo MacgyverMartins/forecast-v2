@@ -18,6 +18,7 @@ export const SearchInput = styled.input`
 export const Close = styled(CloseIcon)`
   width: 18px;
   height: 18px;
+  fill: ${theme.colors.white};
   position: absolute;
   right: 4px;
   top: 5px;

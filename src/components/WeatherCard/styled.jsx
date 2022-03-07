@@ -3,6 +3,7 @@ import { theme } from "../../assets/theme";
 
 export const WeatherCardWrapper = styled.div`
   position: relative;
+  overflow: visible;
 `;
 
 export const InfosList = styled.ul`
@@ -11,7 +12,7 @@ export const InfosList = styled.ul`
   position: absolute;
   left: 60%;
   top: 0;
-  font-size: 1rem;
+  font-size: 0.8rem;
 
   li {
     color: ${theme.colors.white};

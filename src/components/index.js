@@ -3,6 +3,7 @@ export { default as Header } from "./Header";
 export { default as MainView } from "./MainView";
 export { default as LocButton } from "./LocButton";
 export { default as Fallback } from "./Fallback";
+export { default as Svg } from "./Svg";
 export { default as WeatherIcon } from "./WeatherIcon";
 export { default as Tabnav } from "./Tabnav";
 export { default as WeatherCard } from "./WeatherCard";

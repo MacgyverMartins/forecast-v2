@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Description, IconWrapper } from "./styled";
 import getWeatherIcon from "./getWeatherIcon";
@@ -10,9 +10,7 @@ function WeatherIcon({ weather }) {
 
   return (
     <IconWrapper>
-      <Suspense fallback={<div>...</div>}>
-        <Component />
-      </Suspense>
+      <Component />
       <Description>{main}</Description>
     </IconWrapper>
   );

@@ -1,17 +1,4 @@
-import styled from "styled-components";
-import { theme } from "../../assets/theme";
-
-const Icon = styled.svg.attrs({
-  version: "1.1",
-  xmlns: "http://www.w3.org/2000/svg",
-  xmlnsXlink: "http://www.w3.org/1999/xlink",
-})``;
-
-const Svg = styled(Icon)`
-  fill: ${theme.colors.white};
-  width: 24px;
-  height: 24px;
-`;
+import { Svg } from "..";
 
 const CloseIcon = (props) => {
   return (

@@ -16,7 +16,7 @@ export const MainViewWrapper = styled.div`
 `;
 
 export const ForecastArea = styled.div`
-  height: 50%;
+  height: 40vh;
 `;
 
 export const Grid = styled.div`
