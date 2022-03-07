@@ -4,6 +4,11 @@ const NormalizeCSS = createGlobalStyle`
   * {
     font-family: Helvetica, 'Roboto', sans-serif;
   }
+
+  body html #root {
+    height: 100vh;
+  }
+
   body {
     margin: 0
   }

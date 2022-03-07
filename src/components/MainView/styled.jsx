@@ -19,11 +19,19 @@ export const ForecastArea = styled.div`
   height: 50%;
 `;
 
-export const LocationsGrid = styled.div`
+export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 6px;
-  grid-row-gap: 6px;
+  grid-column-gap: 0.4rem;
+  grid-row-gap: 0.4rem;
   margin-top: auto;
+  padding: 0 0.4rem;
+  max-height: 50vh;
+  overflow: auto;
+
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
 `;

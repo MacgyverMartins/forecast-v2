@@ -3,12 +3,7 @@ import { Outlet } from "react-router-dom";
 import cities from "../../assets/cities";
 import { LocButton, Header } from "../index";
 import NormalizeCSS from "../../assets/css/NormalizeCSS";
-import {
-  AppWrapper,
-  MainViewWrapper,
-  LocationsGrid,
-  ForecastArea,
-} from "./styled";
+import { AppWrapper, MainViewWrapper, Grid, ForecastArea } from "./styled";
 
 const locations = cities.map((loc) => {
   const key = `${loc.name}_${Math.random()}`;
@@ -37,10 +32,10 @@ function MainView() {
         <Header onSearch={filterByLocationName} />
         <MainViewWrapper>
           <ForecastArea>
-            {/* <Outlet context={[selectedLocation]} /> */}
+            <Outlet context={[selectedLocation]} />
           </ForecastArea>
 
-          <LocationsGrid>
+          <Grid>
             {locations.map((loc) => (
               <LocButton
                 key={loc.key}
@@ -50,7 +45,7 @@ function MainView() {
                 {loc.name}, {loc.country}
               </LocButton>
             ))}
-          </LocationsGrid>
+          </Grid>
         </MainViewWrapper>
       </AppWrapper>
     </>

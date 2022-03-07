@@ -6,12 +6,10 @@ const LocButton = styled.button.attrs((props) => ({
 }))`
   cursor: pointer;
   color: ${theme.colors.white};
-  font-size: 16px;
   background-color: transparent;
   border: 2px solid ${theme.colors.blue};
   border-radius: 8px;
   padding: 12px;
-  margin: 6px;
 
   &.active {
     background-color: ${theme.colors.white};
