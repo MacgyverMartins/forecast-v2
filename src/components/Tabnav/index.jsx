@@ -2,7 +2,6 @@ import React, { memo } from "react";
 import { Link, TabnavWrapper } from "./styled";
 
 function Tabnav() {
-  console.log("render nav");
   return (
     <TabnavWrapper>
       <p>Forecast</p>

@@ -23,8 +23,6 @@ function MainView() {
     }
   };
 
-  console.log("render Main");
-
   return (
     <>
       <NormalizeCSS />
