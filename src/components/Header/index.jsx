@@ -1,15 +1,15 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { SearchBar, SettingsModal } from "..";
-import { HeaderWrapper, Actions, Action, Clock } from "./styled";
+import { SearchBar, SettingsModal, Clock } from "..";
+import { HeaderWrapper, Actions, Action } from "./styled";
 
 function Header(props) {
   const [open, setOpen] = useState(false);
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <HeaderWrapper>
-      <Clock>3:25 PM</Clock>
+      <Clock />
       <Actions>
         {!open && <Action onClick={() => setOpen(true)}>Search</Action>}
         {open && (

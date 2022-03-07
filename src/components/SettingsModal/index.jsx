@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
-import { RadioButton, SettingsContext } from "..";
+import { Clock, RadioButton, SettingsContext } from "..";
 import {
   Modal,
   ModalOverlay,
@@ -9,6 +9,7 @@ import {
   RadioGroup,
   ActionsGroup,
   Button,
+  ClockArea,
 } from "./styled";
 
 function SettingsModal(props) {
@@ -81,6 +82,9 @@ function SettingsModal(props) {
           <Button onClick={props.onClose}>Cancel</Button>
           <Button onClick={handleSave}>Save</Button>
         </ActionsGroup>
+        <ClockArea>
+          <Clock />
+        </ClockArea>
       </Modal>
     </ModalOverlay>
   );

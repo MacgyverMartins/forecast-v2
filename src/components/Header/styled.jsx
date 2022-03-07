@@ -10,8 +10,6 @@ export const HeaderWrapper = styled.div`
   color: ${theme.colors.white};
 `;
 
-export const Clock = styled.div``;
-
 export const Actions = styled.div`
   display: flex;
   align-items: center;

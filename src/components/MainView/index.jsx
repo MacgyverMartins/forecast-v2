@@ -1,7 +1,7 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import cities from "../../assets/cities";
-import { SettingsProvider, LocButton, Header } from "../index";
+import { LocButton, Header } from "../index";
 import NormalizeCSS from "../../assets/css/NormalizeCSS";
 import {
   AppWrapper,
@@ -37,7 +37,7 @@ function MainView() {
         <Header onSearch={filterByLocationName} />
         <MainViewWrapper>
           <ForecastArea>
-            <Outlet context={[selectedLocation]} />
+            {/* <Outlet context={[selectedLocation]} /> */}
           </ForecastArea>
 
           <LocationsGrid>

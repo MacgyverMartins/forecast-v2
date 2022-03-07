@@ -45,12 +45,11 @@ export const Modal = styled.div`
   color: ${theme.colors.white};
   background-color: ${theme.colors.black};
   border: 1px solid ${theme.colors.blue};
-  padding: 10px 0 20px;
+  padding: 10px 1rem 20px;
   display: flex;
   flex-direction: column;
-  width: 80vw;
-  max-width: 400px;
   border-radius: 8px;
+  box-sizing: border-box;
 `;
 
 export const RadioGroup = styled.div`
@@ -64,6 +63,10 @@ export const RadioGroup = styled.div`
 
 export const ActionsGroup = styled(RadioGroup)`
   margin-top: 3rem;
+`;
+
+export const ClockArea = styled.div`
+  text-align: right;
 `;
 
 export const Button = styled.button`
